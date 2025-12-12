@@ -1,0 +1,56 @@
+Title: User Activation Funnel Analysis (MySQL)
+
+Business Goal
+Measure conversion across the activation funnel and identify where users drop off + which segments underperform.
+
+Dataset
+
+5,000 users
+
+100,000 events
+
+Attributes: country, device, marketing_channel
+
+Funnel events: signup → verify_email → onboarding_completed → view_feature → add_to_cart → purchase
+
+Method (SQL Approach)
+
+Built a per-user funnel table using MIN(CASE WHEN...)
+
+Computed step counts + stepwise conversion rates
+
+Segmented funnel performance by device
+
+Measured time-to-convert using TIMESTAMPDIFF and window functions for percentiles
+
+Key Findings
+
+Overall conversion (signup → purchase): 7.6%
+
+Largest drop-off step: Viewing Feature → Add to Cart (18.66% loss)
+
+Best segment: IOS with 9.09% conversion
+
+Time-to-purchase: Android P50 142 hours, P90 308 hours
+                  iOS P50 143 hours, P90 315 hours
+                  Web P50 148 hours, P90 309 hours
+
+Recommendations
+
+Reduce friction at the highest drop-off step (View Feature → Add to Cart)
+Improve pricing clarity, strengthen primary CTAs, and simplify the path from feature discovery to cart action.
+
+Add behavior-based nudges for slow-converting users
+Trigger email/push reminders for users who view features but do not add to cart or purchase within 48–72 hours.
+
+Replicate high-performing iOS patterns across platforms
+Audit iOS onboarding and checkout flows and apply successful UX patterns to Android and Web to close the conversion gap.
+
+Shorten time-to-purchase for long-tail users (high P90)
+Introduce limited-time incentives, contextual help, or FAQs to reduce hesitation among users taking more than a week to convert.
+
+Implement segment-specific optimization strategies
+Focus on improving Android onboarding flow and evaluate traffic quality from underperforming channels to increase overall funnel efficiency.
+
+Artifacts
+schema.sql, users.sql, events.sql
