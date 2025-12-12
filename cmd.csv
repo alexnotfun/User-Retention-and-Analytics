@@ -1,0 +1,4 @@
+device,conv_ver,conv_onb,conv_view_feature,conv_add_cart,conv_purchase,macro_conv_purchase
+iOS,78.86,73.74,70.72,51.23,43.15,9.09
+Android,79.13,74.72,68.61,51.35,37.74,7.86
+Web,82.78,70.22,71.48,50.64,37.37,7.86
